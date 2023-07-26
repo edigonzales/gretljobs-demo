@@ -1,4 +1,4 @@
-name: gretl-naturgefahren
+name: main
 on:
   # push:
   #   paths-ignore:
