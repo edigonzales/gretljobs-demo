@@ -1,0 +1,31 @@
+name: gretl-naturgefahren
+on:
+  # push:
+  #   paths-ignore:
+  #     - '**.md'
+  #     - 'docs/**.md'
+  workflow_dispatch:
+    # inputs:
+    #   version:
+    #     description: 'identifier?'
+    #     required: true
+
+jobs:  
+  dataIntegration:
+    env:
+      ORG_GRADLE_PROJECT_awsAccessKeyAgi: ${{secrets.AWS_ACCESS_KEY_ID}}
+      ORG_GRADLE_PROJECT_awsSecretAccessKeyAgi: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+
+    runs-on: ubuntu-latest
+
+    container:
+      image: sogis/gretl:latest
+      #image: sogis/gretl:2.2.379
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run GRETL job
+        #id: gretljob
+        run: |
+          gradle -b build.gradle --init-script /home/gradle/init.gradle --no-daemon

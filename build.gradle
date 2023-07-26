@@ -1,0 +1,37 @@
+// defaultTasks 'foo'
+
+// tasks.register("foo") {
+//     doLast {
+//         println("Hallo Welt")
+//     }
+// }
+
+import ch.so.agi.gretl.tasks.*
+
+defaultTasks 'run'
+
+
+// tasks.register('downloadCsv', Download) {
+//     src "https://s3.eu-central-1.amazonaws.com/ch.so.data.ingress-demo/$baseName/$csvFileName"
+//     dest csvFileObj 
+//     overwrite true
+
+//     doLast {
+//         println "File downloaded to: " + pathToTempFolder
+//     }
+// }
+
+
+// task validate(type: IliValidator) {
+//     dataFiles = ["ch.so.afu.abbaustellen.xtf"]
+// }
+
+tasks.register('validate') {
+    doLast {
+        println("Hallo Welt.")
+    }
+}
+
+tasks.register('run') {
+    dependsOn 'validate'
+}
