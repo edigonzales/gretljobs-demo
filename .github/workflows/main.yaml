@@ -5,10 +5,10 @@ on:
   #     - '**.md'
   #     - 'docs/**.md'
   workflow_dispatch:
-    # inputs:
-    #   version:
-    #     description: 'identifier?'
-    #     required: true
+    inputs:
+      dataFileUrl:
+        description: 'data file url?'
+        required: true
 
 jobs:  
   build:
@@ -29,3 +29,8 @@ jobs:
         #id: gretljob
         run: |
           gradle -b build.gradle --init-script /home/gradle/init.gradle --no-daemon
+        env: 
+          ORG_GRADLE_PROJECT_dataFileUrl: ${{ github.event.inputs.dataFileUrl }}
+
+
+
