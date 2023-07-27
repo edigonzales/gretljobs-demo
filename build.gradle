@@ -48,7 +48,7 @@ tasks.register('validate', IliValidator) {
 
 tasks.register('createSchema', Ili2pgImportSchema) {
     dependsOn 'validate'
-    database = ["localhost:5432", "gretl", "gretl"]
+    database = ["jdbc:postgresql://localhost:5432/edit", "gretl", "gretl"]
     models = "KbS_V1_5"
     dbschema = "kbs_sh"
     logFile = "ili2pg.log"
