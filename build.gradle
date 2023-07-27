@@ -51,9 +51,19 @@ tasks.register('createSchema', Ili2pgImportSchema) {
     database = ["jdbc:postgresql://postgis:5432/edit", "gretl", "gretl"]
     models = "KbS_V1_5"
     dbschema = "kbs_sh"
-    logFile = "ili2pg.log"
+    logFile = "ili2pg_schema.log"
+} 
+
+tasks.register('importData', Ili2pgImport) {
+    dependsOn 'createSchema'
+    database = ["jdbc:postgresql://postgis:5432/edit", "gretl", "gretl"]
+    models = "KbS_V1_5"
+    dbschema = "kbs_sh"
+    dataFile = fileName
+    disableValidation = true
+    logFile = "ili2pg_import.log"
 } 
 
 tasks.register('run') {
-    dependsOn 'createSchema'
+    dependsOn 'importData'
 }
