@@ -64,6 +64,17 @@ tasks.register('importData', Ili2pgImport) {
     logFile = "ili2pg_import.log"
 } 
 
-tasks.register('run') {
+tasks.register('exportData', Ili2pgExport) {
     dependsOn 'importData'
+    database = ["jdbc:postgresql://postgis:5432/edit", "gretl", "gretl"]
+    models = "KbS_V1_5"
+    dbschema = "kbs_sh"
+    dataFile = "out-"+fileName
+    disableValidation = true
+    logFile = "ili2pg_out.log"
+} 
+
+
+tasks.register('run') {
+    dependsOn 'exportData'
 }
