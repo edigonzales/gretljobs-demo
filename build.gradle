@@ -28,7 +28,7 @@ defaultTasks 'run'
 
 tasks.register('validate') {
     doLast {
-        println(dataFileUrl) 
+        println(dataFileKey) 
         println("Hallo Welt.")
     }
 }
