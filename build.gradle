@@ -36,7 +36,7 @@ tasks.register('downloadFile', S3Download) {
     region = "eu-central-1"
 }
 
-tasks.register('validate') {
+tasks.register('validate', IliValidator) {
     dependsOn 'downloadFile'
     dataFiles = [dataFileKey.substring(dataFileKey.lastIndexOf("/")+1)]
     doLast {
