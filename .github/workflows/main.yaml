@@ -11,7 +11,7 @@ on:
         required: true
       directory:
         description: 'directory?'
-        required: true
+        required: false
       fileName:
         description: 'file name?'
         required: true

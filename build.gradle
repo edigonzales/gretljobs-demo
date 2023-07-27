@@ -32,7 +32,7 @@ tasks.register('downloadFile', S3Download) {
     //downloadDir = file(dataFileKey.substring(dataFileKey.lastIndexOf("/")+1))
     downloadDir = file(".")
     bucketName = "ch.so.agi.gretl.naturgefahren-dev"
-    key = directory + "/" + fileName
+    key = (directory==null?"":directory+"/") + fileName
     endPoint = "https://s3.eu-central-1.amazonaws.com" 
     region = "eu-central-1"
 }
