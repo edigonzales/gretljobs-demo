@@ -6,8 +6,8 @@ on:
   #     - 'docs/**.md'
   workflow_dispatch:
     inputs:
-      dataFileUrl:
-        description: 'data file url?'
+      dataFileKey:
+        description: 'data file key?'
         required: true
 
 jobs:  
@@ -30,7 +30,7 @@ jobs:
         run: |
           gradle -b build.gradle --init-script /home/gradle/init.gradle --no-daemon
         env: 
-          ORG_GRADLE_PROJECT_dataFileUrl: ${{ github.event.inputs.dataFileUrl }}
+          ORG_GRADLE_PROJECT_dataFileKey: ${{ github.event.inputs.dataFileKey }}
 
 
 
