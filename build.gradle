@@ -32,14 +32,14 @@ tasks.register('downloadFile', S3Download) {
     //downloadDir = file(dataFileKey.substring(dataFileKey.lastIndexOf("/")+1))
     downloadDir = file(".")
     bucketName = "ch.so.agi.gretl.naturgefahren-dev"
-    key = dataFileKey
+    key = directory + "/" + fileName
     endPoint = "https://s3.eu-central-1.amazonaws.com" 
     region = "eu-central-1"
 }
 
 tasks.register('validate', IliValidator) {
     dependsOn 'downloadFile'
-    dataFiles = [dataFileKey.substring(dataFileKey.lastIndexOf("/")+1)]
+    dataFiles = [fileName]
     doLast {
         println(dataFileKey) 
         println("Hallo Welt.")
