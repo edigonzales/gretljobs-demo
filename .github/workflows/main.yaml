@@ -31,9 +31,11 @@ jobs:
     services:
       # Label used to access the service container
       postgres:
-        image: postgres
+        image: postgis/postgis:14-3.3
         env:
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: gretl
+          POSTGRES_USER: gretl
+          POSTGRES_DB: edit
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
