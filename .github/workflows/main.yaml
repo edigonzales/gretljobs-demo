@@ -55,5 +55,10 @@ jobs:
           ORG_GRADLE_PROJECT_directory: ${{ github.event.inputs.directory }}
           ORG_GRADLE_PROJECT_fileName: ${{ github.event.inputs.fileName }}
 
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage-report
+          path: out-**.xtf
 
 
