@@ -1,4 +1,4 @@
-name: main
+name: ch.so.afu.gretl.naturgefahren
 on:
   # push:
   #   paths-ignore:
