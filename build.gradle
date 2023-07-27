@@ -27,6 +27,9 @@ defaultTasks 'run'
 // }
 
 tasks.register('downloadFile', S3Download) {
+    doFirst {
+        println("***"+directory+"***")
+    }
     accessKey = awsAccessKeyAgi
     secretKey = awsSecretAccessKeyAgi
     //downloadDir = file(dataFileKey.substring(dataFileKey.lastIndexOf("/")+1))
