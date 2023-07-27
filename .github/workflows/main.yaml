@@ -30,7 +30,7 @@ jobs:
 
     services:
       # Label used to access the service container
-      postgres:
+      postgis:
         image: postgis/postgis:14-3.3
         env:
           POSTGRES_PASSWORD: gretl
