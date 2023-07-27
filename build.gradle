@@ -26,7 +26,19 @@ defaultTasks 'run'
 //     dataFiles = ["ch.so.afu.abbaustellen.xtf"]
 // }
 
+tasks.register('downloadFile', S3Download) {
+    accessKey = awsAccessKeyAgi
+    secretKey = awsSecretAccessKeyAgi
+    downloadDir = file(dataFileKey.substring(dataFileKey.lastIndexOf("/")+1))
+    bucketName = "ch.so.agi.gretl.naturgefahren-dev"
+    key = dataFileKey
+    endPoint = "https://s3.eu-central-1.amazonaws.com" 
+    region = "eu-central-1"
+}
+
 tasks.register('validate') {
+    dependsOn 'downloadFile'
+    dataFiles = [dataFileKey.substring(dataFileKey.lastIndexOf("/")+1)]
     doLast {
         println(dataFileKey) 
         println("Hallo Welt.")
