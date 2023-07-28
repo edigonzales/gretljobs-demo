@@ -41,7 +41,7 @@ tasks.register('validate', IliValidator) {
     dependsOn 'downloadFile'
     dataFiles = [fileName]
     doLast {
-        println(dataFileKey) 
+        println(fileName) 
         println("Hallo Welt.")
     }
 }
