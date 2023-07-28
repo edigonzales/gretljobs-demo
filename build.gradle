@@ -2,8 +2,8 @@ import ch.so.agi.gretl.tasks.*
 
 defaultTasks 'run'
 
-def iliModelName = 'KbS_V1_5'
-def dbSchema = 'kbs_sh'
+def iliModelName = 'SO_AFU_ABBAUSTELLEN_Publikation_20221103'
+def dbSchema = 'afu_abbaustellen_pub'
 
 tasks.register('downloadFile', S3Download) {
     accessKey = awsAccessKeyAgi
@@ -18,6 +18,7 @@ tasks.register('downloadFile', S3Download) {
 tasks.register('validate', IliValidator) {
     dependsOn 'downloadFile'
     dataFiles = [fileName]
+    models = iliModelName
     logFile = "ilivalidator.log"
     doLast {
         println(fileName) 
