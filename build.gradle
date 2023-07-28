@@ -26,7 +26,7 @@ tasks.register('validate', IliValidator) {
 
 tasks.register('createSchema', Ili2pgImportSchema) {
     dependsOn 'validate'
-    database = ["jdbc:postgresql://postgis:5432/edit", "gretl", "gretl"]
+    database = [dbUriEdit, dbUserEdit, dbPwdEdit]
     models = iliModelName
     dbschema = dbSchema
     logFile = "ili2pg_schema.log"
