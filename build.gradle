@@ -30,6 +30,7 @@ tasks.register('createSchema', Ili2pgImportSchema) {
     database = [dbUriEdit, dbUserEdit, dbPwdEdit]
     models = iliModelName
     dbschema = dbSchema
+    setupPgExt = true
     logFile = "ili2pg_schema.log"
 } 
 
