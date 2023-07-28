@@ -58,6 +58,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: results
-          path: out-**.xtf
+          path: |
+            out-**.xtf
+            *.log
 
 
