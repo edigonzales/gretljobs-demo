@@ -1,9 +1,6 @@
 name: ch.so.afu.gretl.naturgefahren
+
 on:
-  # push:
-  #   paths-ignore:
-  #     - '**.md'
-  #     - 'docs/**.md'
   workflow_dispatch:
     inputs:
       directory:
@@ -14,7 +11,9 @@ on:
         required: true
 
 jobs:  
+
   build:
+
     env:
       ORG_GRADLE_PROJECT_awsAccessKeyAgi: ${{secrets.AWS_ACCESS_KEY_ID}}
       ORG_GRADLE_PROJECT_awsSecretAccessKeyAgi: ${{secrets.AWS_SECRET_ACCESS_KEY}}
@@ -23,17 +22,14 @@ jobs:
 
     container:
       image: sogis/gretl:latest
-      #image: sogis/gretl:2.2.379
 
     services:
-      # Label used to access the service container
       postgis:
         image: postgis/postgis:14-3.3
         env:
           POSTGRES_PASSWORD: gretl
           POSTGRES_USER: gretl
           POSTGRES_DB: edit
-        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -44,7 +40,6 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Run GRETL job
-        #id: gretljob
         run: |
           gradle -b build.gradle --init-script /home/gradle/init.gradle --no-daemon
         env: 
