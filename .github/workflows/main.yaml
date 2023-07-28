@@ -51,8 +51,8 @@ jobs:
           ORG_GRADLE_PROJECT_directory: ${{ github.event.inputs.directory }}
           ORG_GRADLE_PROJECT_fileName: ${{ github.event.inputs.fileName }}
           ORG_GRADLE_PROJECT_dbUriEdit: jdbc:postgresql://postgis:5432/edit
-          ORG_GRADLE_PROJECT_dbUserEdit: ${{ env.POSTGRES_USER }}
-          ORG_GRADLE_PROJECT_dbPwdEdit: ${{ env.POSTGRES_PASSWORD }}
+          ORG_GRADLE_PROJECT_dbUserEdit: gretl
+          ORG_GRADLE_PROJECT_dbPwdEdit: gretl
 
       - name: Upload results
         uses: actions/upload-artifact@v3
