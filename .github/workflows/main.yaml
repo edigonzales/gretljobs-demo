@@ -1,4 +1,4 @@
-name: ch.so.afu.gretl.naturgefahren
+name: gretljobs-demo
 
 on:
   workflow_dispatch:
