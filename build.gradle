@@ -9,7 +9,7 @@ tasks.register('downloadFile', S3Download) {
     accessKey = awsAccessKeyAgi
     secretKey = awsSecretAccessKeyAgi
     downloadDir = file(".")
-    bucketName = "ch.so.agi.gretl.naturgefahren-dev"
+    bucketName = "ch.so.agi.gretl.demo-dev"
     key = (directory.isEmpty()?"":(directory+"/")) + fileName
     endPoint = "https://s3.eu-central-1.amazonaws.com" 
     region = "eu-central-1"
